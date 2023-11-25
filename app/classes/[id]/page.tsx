@@ -9,6 +9,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import EnrollClassForm from "@/components/base/EnrollClassForm";
 import { ArrowLeft } from "lucide-react";
+import DateFormat from "@/components/base/DateFormat";
 
 export default async function Class({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
@@ -53,7 +54,11 @@ export default async function Class({ params }: { params: { id: string } }) {
             <p className="text-md mt-5">Instructor</p>
             <p className="text-md mt-5">{`: ${kelas.instructor}`}</p>
             <p className="text-md mt-5">Date</p>
-            <p className="text-md mt-5">{`: ${kelas.date}`}</p>
+            <p className="text-md mt-5 flex">
+              <span>{`: `}</span>
+              <span className="opacity-0">{`: `}</span>
+              <DateFormat date={kelas.date} />
+            </p>
             <p className="text-md mt-5">Duration</p>
             <p className="text-md mt-5">{`: ${kelas.duration}`}</p>
             <p className="font-bold text-red-700 text-2xl my-3">{rupiah(kelas.price)}</p>
