@@ -37,6 +37,14 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
     }
   };
 
+  const rupiah = (number: any) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+    }).format(number);
+  };
+
   const onSubmit = async (payload: TransactionType) => {
     setLoading(true);
     const user = await supabase.auth.getUser();
@@ -92,8 +100,8 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
           <AlertDialogDescription>
             <div>
               {/* <ToastContainer /> */}
-              <p className="text-lg font-semibold text-black">Membership Registration (30 Days)</p>
-              <p className="text-xl font-semibold text-red-500">{`Rp.${classs.price}`}</p>
+              <p className="text-lg font-semibold text-black">{classs.className}</p>
+              <p className="text-xl font-semibold text-red-500">{rupiah(classs.price)}</p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
                   <Label htmlFor="image">Proof of payment (Image)</Label>

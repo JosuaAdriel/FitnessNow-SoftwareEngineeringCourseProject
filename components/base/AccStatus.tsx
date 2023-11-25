@@ -12,8 +12,6 @@ export default async function AccStatus() {
 
   return (
     <div>
-      <div className="">Ini Muncul ga</div>
-      {/* <div className="">{JSON.stringify({ user })}</div> */}
       <div>
         {user.isActive ? (
           <div className="text-white p-24 text-3xl font-bold w-full text-center gap-y-12">

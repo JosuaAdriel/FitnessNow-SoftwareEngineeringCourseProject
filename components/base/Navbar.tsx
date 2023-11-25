@@ -24,11 +24,11 @@ export default async function Navbar() {
           <div className="flex space-x-2">
             <div className="w-full hidden md:block md:w-auto">
               <div className="flex items-center space-x-2 p-2">
-                <Link href="/" className="hidden md:block text-md pl-2 text-white">
+                <Link href="/" className="hidden hover:underline focus:font-bold md:block text-md pl-2 text-white">
                   Home
                 </Link>
                 <span>|</span>
-                <Link href="/classes" className="hidden md:block text-md pl-2 text-white">
+                <Link href="/classes" className="hidden hover:underline focus:font-bold md:block text-md pl-2 text-white">
                   Classes
                 </Link>
                 <span>|</span>

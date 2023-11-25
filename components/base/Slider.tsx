@@ -56,7 +56,7 @@ function App() {
       <div style={{ backgroundImage: `url(${slides[currentIndex].url})` }} className="w-full h-full rounded-2xl bg-center bg-cover duration-500 relative">
         <div className="absolute w-full h-full inset-0 bg-black/30 rounded-2xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-white text-4xl font-bold">{slides[currentIndex].text}</div>
-        <button className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-red-600 hover:bg-red-400 w-48 h-14 text-white font-bold rounded-md">Discover Classes</button>
+        {/*         <button className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-red-600 hover:bg-red-400 w-48 h-14 text-white font-bold rounded-md">Discover Classes</button> */}
       </div>
 
       {/* Left Arrow */}

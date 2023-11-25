@@ -98,7 +98,7 @@ export default function MembershipForm() {
             <div className="px-2">
               {/* <ToastContainer /> */}
               <p className="text-lg font-semibold text-black">Membership Registration (30 Days)</p>
-              <p className="text-xl font-semibold text-red-500">Rp200.000</p>
+              <p className="text-xl font-semibold text-red-500">Rp 200.000</p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
                   <Label htmlFor="image">Proof of payment (Image)</Label>
