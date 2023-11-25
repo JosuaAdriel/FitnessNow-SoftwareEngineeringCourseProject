@@ -25,8 +25,8 @@ export default async function Classes() {
   return (
     <div className="container min-h-screen">
       <div className="my-4 md:my-8 lg:my-12 flex mx-3">
-        <div className="text-lg md:text-2xl lg:text-3xl font-bold px-6 md:px-10 lg:px-12 py-2 bg-red-800 rounded-xl text-white">Classes</div>
-        <Link href="classes/registered-class" className="hover:bg-gray-200 ml-2 text-lg md:text-2xl lg:text-3xl font-bold px-6 lg:px-12 py-2 bg-white rounded-xl text-gray-400 cursor-pointer">
+        <div className="text-md md:text-2xl lg:text-3xl font-bold px-6 md:px-10 lg:px-12 py-2 bg-red-800 rounded-xl text-white">Classes</div>
+        <Link href="classes/registered-class" className="hover:bg-gray-200 ml-2 text-md md:text-2xl lg:text-3xl font-bold px-6 lg:px-12 py-2 bg-white rounded-xl text-gray-400 cursor-pointer">
           Registered Classes
         </Link>
       </div>

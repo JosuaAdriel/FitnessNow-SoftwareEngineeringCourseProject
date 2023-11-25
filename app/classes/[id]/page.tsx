@@ -37,10 +37,14 @@ export default async function Class({ params }: { params: { id: string } }) {
   return (
     <div className="container min-h-screen">
       <div className="mt-8">
-        <Link href="/classes" className="font-bold text-2xl flex items-center gap-2">
-          <ArrowLeft />
-          <>Back</>
-        </Link>
+        <div className="font-bold text-2xl flex items-center gap-2">
+          <Link href="/classes">
+            <ArrowLeft />
+          </Link>
+          <Link href="/classes">
+            <>Back</>
+          </Link>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-8">
         <Image src={getImageUrl(kelas.image)} width={768} height={768} alt="/images/github.png" className="w-full"></Image>

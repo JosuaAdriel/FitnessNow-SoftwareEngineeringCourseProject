@@ -92,19 +92,21 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle asChild>
-            <div className="flex justify-between items-cener">
+            <div className="flex justify-between items-center">
               <span className="text-xl font-extrabold">Class Enroll Payment</span>
               <X onClick={() => setOpen(false)} className="cursor-pointer" />
             </div>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            <div>
+            <div className="items-left">
               {/* <ToastContainer /> */}
-              <p className="text-lg font-semibold text-black">{classs.className}</p>
-              <p className="text-xl font-semibold text-red-500">{rupiah(classs.price)}</p>
+              <p className="w-full flex justify-start text-lg font-semibold text-black">{classs.className}</p>
+              <p className="w-full flex justify-start text-xl font-semibold text-red-500">{rupiah(classs.price)}</p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
-                  <Label htmlFor="image">Proof of payment (Image)</Label>
+                  <Label htmlFor="image">
+                    <div className="w-full flex justify-start">Proof of payment (Image)</div>
+                  </Label>
                   <Input type="file" placeholder="Enter image" id="image" onChange={handleImage} />
                   <span className="text-red-500 font-bold">{errors?.image?.message}</span>
                 </div>{" "}

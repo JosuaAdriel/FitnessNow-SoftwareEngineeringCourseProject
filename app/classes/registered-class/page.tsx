@@ -19,10 +19,10 @@ export default async function Classes() {
   return (
     <div className="container min-h-screen">
       <div className="my-4 md:my-8 lg:my-12 flex mx-3">
-        <Link href="/classes" className="text-lg md:text-2xl lg:text-3xl font-bold px-6 lg:px-12 py-2 hover:bg-gray-200 mr-2 rounded-xl text-gray-400 cursor-pointer">
+        <Link href="/classes" className="text-md md:text-2xl lg:text-3xl font-bold px-6 lg:px-12 py-2 hover:bg-gray-200 mr-2 rounded-xl text-gray-400 cursor-pointer">
           Classes
         </Link>
-        <div className="text-lg md:text-2xl lg:text-3xl font-bold px-6 md:px-10 lg:px-12 py-2 bg-red-800 rounded-xl text-white">Registered Classes</div>
+        <div className="text-md md:text-2xl lg:text-3xl font-bold px-6 md:px-10 lg:px-12 py-2 bg-red-800 rounded-xl text-white">Registered Classes</div>
       </div>
       <>
         {kelasList?.length == 0 ? <div>Tidak Ada Kelas Terdaftar</div> : <></>}

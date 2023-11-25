@@ -97,11 +97,13 @@ export default function MembershipForm() {
           <AlertDialogDescription>
             <div className="px-2">
               {/* <ToastContainer /> */}
-              <p className="text-lg font-semibold text-black">Membership Registration (30 Days)</p>
-              <p className="text-xl font-semibold text-red-500">Rp 200.000</p>
+              <p className="w-full flex justify-start text-lg font-semibold text-black">Membership Registration (30 Days)</p>
+              <p className="w-full flex justify-start text-xl font-semibold text-red-500">Rp 200.000</p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
-                  <Label htmlFor="image">Proof of payment (Image)</Label>
+                  <Label htmlFor="image">
+                    <div className="w-full flex justify-start">Proof of payment (Image)</div>
+                  </Label>
                   <Input type="file" placeholder="Enter image" id="image" onChange={handleImage} />
                   <span className="text-red-500 font-bold">{errors?.image?.message}</span>
                 </div>{" "}

@@ -2,6 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import React from "react";
 import MembershipForm from "./MembershipForm";
+import DateFormat from "./DateFormat";
 
 export default async function AccStatus() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,9 +15,11 @@ export default async function AccStatus() {
     <div>
       <div>
         {user.isActive ? (
-          <div className="text-white p-24 text-3xl font-bold w-full text-center gap-y-12">
-            <div>Your membership is active</div>
-            <div>{`Until ${user.activeUntil}`}</div>
+          <div className="text-white p-12 md:p-24 text-xl md:text-3xl font-bold w-full text-center gap-y-12">
+            <div>Your membership is active until</div>
+            <div>
+              <DateFormat date={user.activeUntil} />
+            </div>
           </div>
         ) : (
           <div className="p-24 text-center space-y-12">
