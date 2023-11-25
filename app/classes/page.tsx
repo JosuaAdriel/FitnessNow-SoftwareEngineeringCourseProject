@@ -34,8 +34,8 @@ export default async function Classes() {
         {kelas?.length == 0 ? <div>Tidak Ada Kelas</div> : <></>}
         {kelas && kelas?.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 px-2">
-            {kelas?.map((item) => (
-              <Card kelas={item} key={item.id} />
+            {kelas?.map((item, index) => (
+              <Card kelas={item} key={index} />
             ))}
           </div>
         )}

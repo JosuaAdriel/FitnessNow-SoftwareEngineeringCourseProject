@@ -4,6 +4,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Card from "@/components/base/Card";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import React from "react";
 
 export default async function Classes() {
   const supabase = createServerComponentClient({ cookies });
@@ -27,17 +28,14 @@ export default async function Classes() {
         {kelasList?.length == 0 ? <div>Tidak Ada Kelas Terdaftar</div> : <></>}
         {kelasList && kelasList?.length > 0 && (
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 px-2">
-            {kelas?.map((kelas) => (
-              <>
-                {kelasList?.map((registered) => (
-                  <div>
-                    <div className="">{registered.classId == kelas.id ? <Card kelas={kelas} key={kelas.id} /> : <div className="">Tidak</div>}</div>
-                    {/* if ({registered.classId == kelas.id}) {
-                     root.render(<Card kelas={kelas} key={kelas.id} />);
-                  } */}
+            {kelas?.map((kelas, kelasIndex) => (
+              <React.Fragment key={kelasIndex}>
+                {kelasList?.map((registered, registeredIndex) => (
+                  <div key={`${kelasIndex}-${registeredIndex}`}>
+                    <div className="">{registered.classId === kelas.id ? <Card kelas={kelas} key={kelas.id} /> : <div className="">Tidak</div>}</div>
                   </div>
                 ))}
-              </>
+              </React.Fragment>
             ))}
           </div>
         )}
