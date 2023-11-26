@@ -74,9 +74,19 @@ export default function MembershipForm() {
       toast.error(tranError.message, { theme: "colored" });
       setLoading(false);
       return;
+    } else if (userError) {
+      toast.error(userError.message, { theme: "colored" });
+      setLoading(false);
+      return;
+    } else if (notifError) {
+      toast.error(notifError.message, { theme: "colored" });
+      setLoading(false);
+      return;
+    } else {
+      router.refresh();
+      setOpen(false);
+      toast.success("Membership Registration Success", { theme: "colored" });
     }
-    router.refresh();
-    setOpen(false);
   };
 
   return (
@@ -97,12 +107,12 @@ export default function MembershipForm() {
           <AlertDialogDescription>
             <div className="px-2">
               {/* <ToastContainer /> */}
-              <p className="w-full flex justify-start text-lg font-semibold text-black">Membership Registration (30 Days)</p>
-              <p className="w-full flex justify-start text-xl font-semibold text-red-500">Rp 200.000</p>
+              <div className="w-full flex justify-start text-lg font-semibold text-black">Membership Registration (30 Days)</div>
+              <div className="w-full flex justify-start text-xl font-semibold text-red-500">Rp 200.000</div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
                   <Label htmlFor="image">
-                    <div className="w-full flex justify-start">Proof of payment (Image)</div>
+                    <div className="w-full flex justify-start">Proof of payment (Max 2MB)</div>
                   </Label>
                   <Input type="file" placeholder="Enter image" id="image" onChange={handleImage} />
                   <span className="text-red-500 font-bold">{errors?.image?.message}</span>

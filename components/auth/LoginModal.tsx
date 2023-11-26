@@ -73,7 +73,7 @@ export default function LoginModal() {
                   <span className="text-red-400">{errors.password?.message}</span>
                 </div>
                 <div className="mt-5">
-                  <Button className="bg-brand w-full" disabled={loading}>
+                  <Button className="bg-red-600 hover:bg-red-900 w-full" disabled={loading}>
                     {loading ? "loading" : "continue"}
                   </Button>
                 </div>

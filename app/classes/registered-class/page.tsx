@@ -1,4 +1,3 @@
-import Navbar from "../../../components/base/Navbar";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Card from "@/components/base/Card";
@@ -19,15 +18,15 @@ export default async function Classes() {
   return (
     <div className="container min-h-screen">
       <div className="my-4 md:my-8 lg:my-12 flex mx-3">
-        <Link href="/classes" className="text-md md:text-2xl lg:text-3xl font-bold px-6 lg:px-12 py-2 hover:bg-gray-200 mr-2 rounded-xl text-gray-400 cursor-pointer">
+        <Link href="/classes" className="text-sm sm:text-md md:text-2xl lg:text-3xl font-bold px-3 md:px-10 lg:px-12 py-2 hover:bg-gray-200 mr-2 rounded-xl text-gray-400 cursor-pointer">
           Classes
         </Link>
-        <div className="text-md md:text-2xl lg:text-3xl font-bold px-6 md:px-10 lg:px-12 py-2 bg-red-800 rounded-xl text-white">Registered Classes</div>
+        <div className="text-sm sm:text-md md:text-2xl lg:text-3xl font-bold px-3 md:px-10 lg:px-12 py-2 bg-red-800 rounded-xl text-white">Registered Classes</div>
       </div>
       <>
         {kelasList?.length == 0 ? <div>Tidak Ada Kelas Terdaftar</div> : <></>}
         {kelasList && kelasList?.length > 0 && (
-          <div className="w-full gap-1 px-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="w-full gap-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {kelas?.map((kelas, kelasIndex) => (
               <React.Fragment key={kelasIndex}>{kelasList?.map((registered, registeredIndex) => registered.classId === kelas.id && <Card kelas={kelas} key={kelas.id} />)}</React.Fragment>
             ))}

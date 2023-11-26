@@ -9,7 +9,7 @@ interface Slide {
   text: string;
 }
 
-function App() {
+function Slider() {
   const slides: Slide[] = [
     {
       url: "images/gymMen.jpg",
@@ -78,4 +78,4 @@ function App() {
   );
 }
 
-export default App;
+export default Slider;

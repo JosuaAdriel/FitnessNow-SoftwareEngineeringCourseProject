@@ -7,8 +7,6 @@ import { redirect } from "next/navigation";
 export default async function Profile() {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getUser();
-  console.log("This is user", data.user);
-  console.log(data);
   const { data: sesi, error } = await supabase.auth.getSession();
   {
     sesi?.session?.user == null ? redirect("/about") : <></>;

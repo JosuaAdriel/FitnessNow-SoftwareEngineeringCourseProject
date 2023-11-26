@@ -80,6 +80,8 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
     }
     router.push("/classes/registered-class");
     router.refresh();
+    setOpen(false);
+    toast.success("Class Enroll Success", { theme: "colored" });
   };
 
   return (
@@ -100,12 +102,12 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
           <AlertDialogDescription>
             <div className="items-left">
               {/* <ToastContainer /> */}
-              <p className="w-full flex justify-start text-lg font-semibold text-black">{classs.className}</p>
-              <p className="w-full flex justify-start text-xl font-semibold text-red-500">{rupiah(classs.price)}</p>
+              <div className="w-full flex justify-start text-lg font-semibold text-black">{classs.className}</div>
+              <div className="w-full flex justify-start text-xl font-semibold text-red-500">{rupiah(classs.price)}</div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
                   <Label htmlFor="image">
-                    <div className="w-full flex justify-start">Proof of payment (Image)</div>
+                    <div className="w-full flex justify-start">Proof of payment (Max 2MB)</div>
                   </Label>
                   <Input type="file" placeholder="Enter image" id="image" onChange={handleImage} />
                   <span className="text-red-500 font-bold">{errors?.image?.message}</span>

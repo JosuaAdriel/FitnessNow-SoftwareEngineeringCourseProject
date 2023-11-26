@@ -11,7 +11,7 @@ import NotificationPopup from "./NotificationPopup";
 export default async function Navbar() {
   const supabase = createServerComponentClient({ cookies });
   const { data, error } = await supabase.auth.getSession();
-  console.log("The session is", data);
+  /* console.log("The session is", data); */
   return (
     <div className="w-full flex bg-black items-center justify-between py-2">
       <div>

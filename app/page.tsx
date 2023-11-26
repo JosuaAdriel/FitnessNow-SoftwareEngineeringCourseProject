@@ -1,7 +1,5 @@
 import AccStatus from "@/components/base/AccStatus";
-import MembershipForm from "@/components/base/MembershipForm";
-import Navbar from "@/components/base/Navbar";
-import App from "@/components/base/Slider";
+import Slider from "@/components/base/Slider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -22,7 +20,7 @@ export default async function Home() {
             <AccStatus />
           </div>
           <div className="pt-10">
-            <App />
+            <Slider />
           </div>
         </div>
       )}

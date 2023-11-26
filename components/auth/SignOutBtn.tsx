@@ -18,12 +18,14 @@ export default function SignOutBtn() {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Are you sure want to logout?</AlertDialogTitle>
           <AlertDialogDescription>This will delete your auth session and you have to login again to access private routes.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={logout}>Continue</AlertDialogAction>
+          <AlertDialogAction onClick={logout} className="bg-red-600 hover:bg-red-900">
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
