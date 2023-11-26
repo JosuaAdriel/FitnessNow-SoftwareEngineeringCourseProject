@@ -1,9 +1,7 @@
 import React from "react";
 import BrandLogo from "./BrandLogo";
-import { Search, MenuIcon } from "lucide-react";
 import NavMenu from "./NavMenu";
-import MobileNav from "./MobileNav";
-import { createClientComponentClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import NotificationPopup from "./NotificationPopup";

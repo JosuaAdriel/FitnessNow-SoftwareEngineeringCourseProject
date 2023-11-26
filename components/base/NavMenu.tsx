@@ -5,7 +5,7 @@ import LoginModal from "../auth/LoginModal";
 import SignupModal from "../auth/SignupModal";
 import SignOutBtn from "../auth/SignOutBtn";
 import Link from "next/link";
-import { createClientComponentClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export default async function NavMenu({ session }: { session: Object | undefined }) {
