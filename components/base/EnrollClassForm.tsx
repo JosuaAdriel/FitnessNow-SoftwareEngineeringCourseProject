@@ -56,9 +56,9 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
       return;
     }
     const { error: enrollError } = await supabase.from("anggota_ikut_kelas").insert({
-      userId: user.data.user?.id,
+      userid: user.data.user?.id,
       image: imgData?.path,
-      classId: classs.id,
+      classid: classs.id,
     });
 
     const { error: tranError } = await supabase.from("transaction").insert({

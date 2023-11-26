@@ -13,9 +13,9 @@ import DateFormat from "@/components/base/DateFormat";
 export default async function Class({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
   const { data: User } = await supabase.auth.getUser();
-  const { data: isReg } = await supabase.from("anggota_ikut_kelas").select("*").eq("classId", params?.id).eq("userId", User.user?.id);
+  const { data: isReg } = await supabase.from("anggota_ikut_kelas").select("*").eq("classid", params?.id).eq("userid", User.user?.id);
   const isRegistered: any | null = isReg?.[0];
-  const { count: participantD } = await supabase.from("anggota_ikut_kelas").select("*", { count: "exact", head: true }).eq("classId", params?.id);
+  const { count: participantD } = await supabase.from("anggota_ikut_kelas").select("*", { count: "exact", head: true }).eq("classid", params?.id);
   const { data: kls } = await supabase.from("kelas_latihan").select("*").eq("id", params?.id);
   const { data: dataUser } = await supabase.from("users").select("isActive").eq("id", User.user?.id);
   const kelas: any | null = kls?.[0];

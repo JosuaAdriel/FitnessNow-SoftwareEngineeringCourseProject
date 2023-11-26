@@ -9,7 +9,7 @@ export default async function Classes() {
   const supabase = createServerComponentClient({ cookies });
   const { data: sesi, error } = await supabase.auth.getSession();
   const { data } = await supabase.auth.getUser();
-  const queryClassList = supabase.from("anggota_ikut_kelas").select("classId").eq("userId", data.user?.id);
+  const queryClassList = supabase.from("anggota_ikut_kelas").select("classid").eq("userid", data.user?.id);
   const { data: kelasList } = await queryClassList;
   const { data: kelas } = await supabase.from("kelas_latihan").select("*");
   {
@@ -28,7 +28,7 @@ export default async function Classes() {
         {kelasList && kelasList?.length > 0 && (
           <div className="w-full gap-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {kelas?.map((kelas, kelasIndex) => (
-              <React.Fragment key={kelasIndex}>{kelasList?.map((registered, registeredIndex) => registered.classId === kelas.id && <Card kelas={kelas} key={kelas.id} />)}</React.Fragment>
+              <React.Fragment key={kelasIndex}>{kelasList?.map((registered, registeredIndex) => registered.classid === kelas.id && <Card kelas={kelas} key={kelas.id} />)}</React.Fragment>
             ))}
           </div>
         )}
