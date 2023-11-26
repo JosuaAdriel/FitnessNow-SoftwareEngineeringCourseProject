@@ -68,6 +68,7 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
     });
 
     const { error: notifError } = await supabase.from("notification").insert({
+      is_exclusive: true,
       id_penerima: user.data.user?.id,
       title: "Class Enroll Success",
       message: `Your are enrolled in class ${classs.class_name}`,

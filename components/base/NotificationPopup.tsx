@@ -23,7 +23,7 @@ export default async function NotificationPopup() {
         <div className="overflow-y-scroll max-h-96 my-2">
           {Notifikasi?.length == 0 ? <div>Tidak Ada Data</div> : <></>}
           {Notifikasi && Notifikasi?.length > 0 && (
-            <div className="border-x-0">{Notifikasi?.map((item, index) => (item.isExclusive == false || item.id_penerima == User.user?.id ? <NotifContainer notifikasi={item} key={index} /> : <></>))}</div>
+            <div className="border-x-0">{Notifikasi?.map((item, index) => (item.is_exclusive == false || item.id_penerima == User.user?.id ? <NotifContainer notifikasi={item} key={index} /> : <></>))}</div>
           )}
         </div>
       </PopoverContent>
