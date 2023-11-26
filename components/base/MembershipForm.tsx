@@ -56,7 +56,7 @@ export default function MembershipForm() {
     });
 
     const { error: notifError } = await supabase.from("notification").insert({
-      idPenerima: user.data.user?.id,
+      id_penerima: user.data.user?.id,
       title: "Membership Payment Success",
       message: `Your membership is active until ${expiredDate}`,
     });

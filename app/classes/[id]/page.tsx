@@ -13,9 +13,9 @@ import DateFormat from "@/components/base/DateFormat";
 export default async function Class({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
   const { data: User } = await supabase.auth.getUser();
-  const { data: isReg } = await supabase.from("anggota_ikut_kelas").select("*").eq("classid", params?.id).eq("userid", User.user?.id);
+  const { data: isReg } = await supabase.from("anggota_ikut_kelas").select("*").eq("class_id", params?.id).eq("user_id", User.user?.id);
   const isRegistered: any | null = isReg?.[0];
-  const { count: participantD } = await supabase.from("anggota_ikut_kelas").select("*", { count: "exact", head: true }).eq("classid", params?.id);
+  const { count: participantD } = await supabase.from("anggota_ikut_kelas").select("*", { count: "exact", head: true }).eq("class_id", params?.id);
   const { data: kls } = await supabase.from("kelas_latihan").select("*").eq("id", params?.id);
   const { data: dataUser } = await supabase.from("users").select("isActive").eq("id", User.user?.id);
   const kelas: any | null = kls?.[0];
@@ -49,7 +49,7 @@ export default async function Class({ params }: { params: { id: string } }) {
       <div className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-2">
         <Image src={getImageUrl(kelas.image)} width={768} height={768} alt="/images/github.png" className="w-full"></Image>
         <div className="detail md:ml-4 justify-center">
-          <h1 className="font-bold text-2xl">{kelas.className}</h1>
+          <h1 className="font-bold text-2xl">{kelas.class_name}</h1>
           <div className="grid grid-cols-2">
             <p className="text-md mt-5">Category</p>
             <p className="text-md mt-5">{`: ${kelas.category}`}</p>

@@ -13,7 +13,7 @@ export default async function Classes() {
 
   const supabase = createServerComponentClient({ cookies });
   const { data: sesi, error } = await supabase.auth.getSession();
-  const query = supabase.from("kelas_latihan").select("id , className, quota, category, instructor, date, time, duration, price, image").gt("date", currentDate).order("created_at", { ascending: false });
+  const query = supabase.from("kelas_latihan").select("*").gt("date", currentDate).order("created_at", { ascending: false });
   const { data: kelas } = await query;
   {
     sesi?.session?.user == null ? redirect("/about") : <></>;

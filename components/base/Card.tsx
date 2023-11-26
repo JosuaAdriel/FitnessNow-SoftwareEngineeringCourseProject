@@ -16,7 +16,7 @@ export default function Card({ kelas }: { kelas: any }) {
   return (
     <Link href={`/classes/${kelas.id}`} className="rounded-lg shadow-lg pb-4 mx-3 mb-8">
       <Image src={getImageUrl(kelas.image)} alt="fitness-image" width={500} height={500} className="object-cover h-52 rounded-t-lg overflow-hidden"></Image>
-      <h3 className="text-xl lg:text-2xl font-bold mt-2 px-2 lg:px-4">{kelas.classname}</h3>
+      <h3 className="text-xl lg:text-2xl font-bold mt-2 px-2 lg:px-4">{kelas.class_name}</h3>
       <p className="text-lg lg:text-xl font-regular px-2 lg:px-4">
         <DateFormat date={kelas.date} />
       </p>

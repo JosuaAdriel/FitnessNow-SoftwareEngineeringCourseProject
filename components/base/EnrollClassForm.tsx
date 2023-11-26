@@ -56,9 +56,9 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
       return;
     }
     const { error: enrollError } = await supabase.from("anggota_ikut_kelas").insert({
-      userid: user.data.user?.id,
+      user_id: user.data.user?.id,
       image: imgData?.path,
-      classid: classs.id,
+      class_id: classs.id,
     });
 
     const { error: tranError } = await supabase.from("transaction").insert({
@@ -68,9 +68,9 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
     });
 
     const { error: notifError } = await supabase.from("notification").insert({
-      idPenerima: user.data.user?.id,
+      id_penerima: user.data.user?.id,
       title: "Class Enroll Success",
-      message: `Your are enrolled in class ${classs.classname}`,
+      message: `Your are enrolled in class ${classs.class_name}`,
     });
 
     if (enrollError) {
@@ -102,7 +102,7 @@ export default function EnrollClassForm({ classs }: { classs: any }) {
           <AlertDialogDescription>
             <div className="items-left">
               {/* <ToastContainer /> */}
-              <div className="w-full flex justify-start text-lg font-semibold text-black">{classs.classname}</div>
+              <div className="w-full flex justify-start text-lg font-semibold text-black">{classs.class_name}</div>
               <div className="w-full flex justify-start text-xl font-semibold text-red-500">{rupiah(classs.price)}</div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
