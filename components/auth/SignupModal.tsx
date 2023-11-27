@@ -9,7 +9,7 @@ import { Input } from "../ui/input";
 import { X } from "lucide-react";
 import { Button } from "../ui/button";
 import { RegisterType, registerSchema } from "@/validations/authSchema";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
@@ -67,9 +67,7 @@ export default function SignupModal() {
           </AlertDialogTitle>
           <AlertDialogDescription asChild>
             <div>
-              <ToastContainer />
               <form onSubmit={handleSubmit(onSubmit)}>
-                <ToastContainer />
                 <div className="mt-5">
                   <Label htmlFor="name">Name</Label>
                   <Input placeholder="Enter your name" id="name" {...register("name")} />

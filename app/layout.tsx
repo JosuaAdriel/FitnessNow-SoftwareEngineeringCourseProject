@@ -19,7 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="bg-black">
           <div className="container">
             <ToastContainer />
-            <Navbar />
           </div>
         </div>
 

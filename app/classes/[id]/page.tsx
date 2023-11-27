@@ -9,6 +9,7 @@ import Link from "next/link";
 import EnrollClassForm from "@/components/base/EnrollClassForm";
 import { ArrowLeft } from "lucide-react";
 import DateFormat from "@/components/base/DateFormat";
+import NavbarClasses from "@/components/base/NavbarClasses";
 
 export default async function Class({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
@@ -35,48 +36,55 @@ export default async function Class({ params }: { params: { id: string } }) {
     sesi?.session?.user == null ? redirect("/about") : <></>;
   }
   return (
-    <div className="container min-h-screen mb-8">
-      <div className="mt-8">
-        <div className="font-bold text-2xl flex items-center gap-2">
-          <Link href="/classes">
-            <ArrowLeft />
-          </Link>
-          <Link href="/classes">
-            <>Back</>
-          </Link>
+    <>
+      <div className="bg-black">
+        <div className="container">
+          <NavbarClasses />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-2">
-        <Image src={getImageUrl(kelas.image)} width={768} height={768} alt="/images/github.png" className="w-full"></Image>
-        <div className="detail md:ml-4 justify-center">
-          <h1 className="font-bold text-2xl">{kelas.class_name}</h1>
-          <div className="grid grid-cols-2">
-            <p className="text-md mt-5">Category</p>
-            <p className="text-md mt-5">{`: ${kelas.category}`}</p>
-            <p className="text-md mt-5">Quota</p>
-            <p className="text-md mt-5">{`: ${kelas.quota}`}</p>
-            <p className="text-md mt-5">Participant</p>
-            <p className="text-md mt-5">{`: ${participant}`}</p>
-            <p className="text-md mt-5">Instructor</p>
-            <p className="text-md mt-5">{`: ${kelas.instructor}`}</p>
-            <p className="text-md mt-5">Date</p>
-            <div className="text-md mt-5 flex">
-              <span>{`: `}</span>
-              <span className="opacity-0">{`: `}</span>
-              <DateFormat date={kelas.date} />
+      <div className="container min-h-screen mb-8">
+        <div className="mt-8">
+          <div className="font-bold text-2xl flex items-center gap-2">
+            <Link href="/classes">
+              <ArrowLeft />
+            </Link>
+            <Link href="/classes">
+              <>Back</>
+            </Link>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-2">
+          <Image src={getImageUrl(kelas.image)} width={768} height={768} alt="/images/github.png" className="w-full"></Image>
+          <div className="detail md:ml-4 justify-center">
+            <h1 className="font-bold text-2xl">{kelas.class_name}</h1>
+            <div className="grid grid-cols-2">
+              <p className="text-md mt-5">Category</p>
+              <p className="text-md mt-5">{`: ${kelas.category}`}</p>
+              <p className="text-md mt-5">Quota</p>
+              <p className="text-md mt-5">{`: ${kelas.quota}`}</p>
+              <p className="text-md mt-5">Participant</p>
+              <p className="text-md mt-5">{`: ${participant}`}</p>
+              <p className="text-md mt-5">Instructor</p>
+              <p className="text-md mt-5">{`: ${kelas.instructor}`}</p>
+              <p className="text-md mt-5">Date</p>
+              <div className="text-md mt-5 flex">
+                <span>{`: `}</span>
+                <span className="opacity-0">{`: `}</span>
+                <DateFormat date={kelas.date} />
+              </div>
+              <p className="text-md mt-5">Duration</p>
+              <p className="text-md mt-5">{`: ${kelas.duration}`}</p>
+              <p className="font-bold text-red-700 text-2xl my-3">{rupiah(kelas.price)}</p>
             </div>
-            <p className="text-md mt-5">Duration</p>
-            <p className="text-md mt-5">{`: ${kelas.duration}`}</p>
-            <p className="font-bold text-red-700 text-2xl my-3">{rupiah(kelas.price)}</p>
-          </div>
-          <div className="md:max-w-[50%]">
-            {isRegistered == null && curUser?.isActive && participant != null && kelas.quota > participant && <EnrollClassForm classs={kelas} />}
-            {isRegistered != null && <div className="text-md text-center bg-gray-300 font-medium text-white rounded-md p-2">Enrolled</div>}
-            {!curUser?.isActive && isRegistered == null && <div className="text-md text-center bg-gray-300 font-medium text-white rounded-md p-2">Active Member Only</div>}
-            {isRegistered == null && curUser?.isActive && participant != null && kelas.quota <= participant && <div className="text-md text-center bg-gray-300 font-medium text-white rounded-md p-2">Class Already Full</div>}
+            <div className="md:max-w-[50%]">
+              {isRegistered == null && curUser?.isActive && participant != null && kelas.quota > participant && <EnrollClassForm classs={kelas} />}
+              {isRegistered != null && <div className="text-md text-center bg-gray-300 font-medium text-white rounded-md p-2">Enrolled</div>}
+              {!curUser?.isActive && isRegistered == null && <div className="text-md text-center bg-gray-300 font-medium text-white rounded-md p-2">Active Member Only</div>}
+              {isRegistered == null && curUser?.isActive && participant != null && kelas.quota <= participant && <div className="text-md text-center bg-gray-300 font-medium text-white rounded-md p-2">Class Already Full</div>}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

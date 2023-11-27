@@ -1,4 +1,5 @@
 import AccStatus from "@/components/base/AccStatus";
+import NavbarHome from "@/components/base/NavbarHome";
 import Slider from "@/components/base/Slider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -16,6 +17,11 @@ export default async function Home() {
         <></>
       ) : (
         <div>
+          <div className="bg-black">
+            <div className="container">
+              <NavbarHome />
+            </div>
+          </div>
           <div className="bg-black justify-center">
             <AccStatus />
           </div>

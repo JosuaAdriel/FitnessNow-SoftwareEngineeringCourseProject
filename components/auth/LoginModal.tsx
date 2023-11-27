@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Label } from "@/components/ui/label";
@@ -59,7 +59,6 @@ export default function LoginModal() {
           </AlertDialogTitle>
           <AlertDialogDescription>
             <div>
-              <ToastContainer />
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mt-5">
                   <Label htmlFor="email">Email</Label>

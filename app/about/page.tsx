@@ -1,3 +1,4 @@
+import Navbar from "@/components/base/Navbar";
 import Slider from "@/components/base/Slider";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -11,6 +12,11 @@ export default async function About() {
   }
   return (
     <>
+      <div className="bg-black">
+        <div className="container">
+          <Navbar />
+        </div>
+      </div>
       <div className="w-full flex-center flex-col justify-center">
         <div className="bg-black w-full flex-col justify-center items-start">
           <div className="flex container flex-col items-start py-20 sm:py-32 md:py-48">

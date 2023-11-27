@@ -11,7 +11,6 @@ import { cookies } from "next/headers";
 export default async function NavMenu({ session }: { session: Object | undefined }) {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getUser();
-  /* console.log("This is user", data.user); */
   return (
     <Popover>
       <PopoverTrigger asChild>
